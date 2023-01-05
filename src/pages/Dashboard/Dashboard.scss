@@ -1,0 +1,23 @@
+.wrapp-dashboard{
+    display: flex;
+    justify-content: center;
+
+    .dashboard{
+        display: flex;
+        width: 900px;
+        justify-content: center;
+        padding: 80px 40px;
+
+        .profile{
+            .label-group{
+                display: flex;
+                align-items: center;
+                
+                .txt-group{
+                    font-weight: 500;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.wrapp-edit-profile{
+    display: flex;
+    justify-content: center;
+
+    .edit-profile{
+        display: flex;
+        width: 900px;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 40px;
+
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+
+            .submit{
+                display: flex;
+                margin-top: 15px;
+                border: none;
+                outline: none;
+                background-color: wheat;
+                font-size: 13px;
+                color: brown;
+                font-weight: bold;
+                justify-content: center;
+                padding: 10px 12px;
+                cursor: pointer;
+                transition: 0.2s ease-in-out;
+                border-radius: 3px;
+                &:hover{
+                    background-color: brown;
+                    color: wheat;
+                }
+            }
+        }
+    }
+}

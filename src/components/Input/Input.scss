@@ -1,0 +1,28 @@
+label{
+    font-size: 13px;
+    color:brown;
+    margin-top: 10px;
+    font-weight: 500;
+}
+input{
+    font-size: 13px;
+    color: #333;
+    padding: 7px 12px;
+    width: auto;
+    border: 2px solid #ccc;
+    outline: none;
+    border-radius: 3px;
+    transition: 0.2s ease-in-out;
+    margin-top: 10px;
+}
+input::placeholder{
+    font-size: 13px;
+    color: #ccc;
+    transition: 0.2s ease-in-out;
+}
+input:focus{
+    border: 2px solid brown;
+    &::placeholder{
+        color: brown;
+    }
+}
