@@ -7,18 +7,22 @@ const EditProfile = () => {
   const [inputValue, setInputValue] = useState({
     name: '',
     age: '',
-    city: ''
+    city: '',
+    nik: ''
   })
 
   const users = profileStore((state) => state.users)
+  const NIK = profileStore((state) => state.users.dataSecret.find(e=> e.berkas === 'column2')['NIK'])
   const changeUserProfile = profileStore((state) => state.changeUserProfile)
+  const changeDataSecret = profileStore((state)=>state.changeDataSecret)
 
   useEffect(() => {
     if (users && Object.keys(users).length > 0) {
       setInputValue({
         name: users.name,
         age: users.age,
-        city: users.city
+        city: users.city,
+        nik: NIK
       })
     }
   }, [users])
@@ -42,9 +46,13 @@ const EditProfile = () => {
     if(inputValue.city.trim() !== users.city){
       checkSomeValue = true
     }
+    if(inputValue.nik.trim() !== NIK){
+      checkSomeValue = true
+    }
     
     if(checkSomeValue && window.confirm('update your profile?')){
      changeUserProfile(inputValue)
+     changeDataSecret(inputValue.nik)
      return alert('update was successful')
     }else if(checkSomeValue){
       return
@@ -77,6 +85,13 @@ const EditProfile = () => {
             inputChange={changeInput}
             placeholder="Enter your city"
             value={inputValue && inputValue.city}
+          />
+          <Input
+            label="NIK"
+            name="nik"
+            inputChange={changeInput}
+            placeholder="Enter your nik"
+            value={inputValue && inputValue.nik}
           />
           <button className="submit" onClick={submit}>
             Submit

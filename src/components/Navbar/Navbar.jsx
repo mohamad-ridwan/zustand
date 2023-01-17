@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import profileStore from '../../zustand/profileStore'
 import './Navbar.scss'
 
 const Navbar = () => {
+    const userName = profileStore((state)=>state.users?.name)
     return (
         <div className="wrapp-navbar">
             <div className="navbar">
                 <div className="left">
                     <Link className='title' to="/">
-                        <p>Mohamad Ridwan Apriyadi</p>
+                        <p>{userName}</p>
                     </Link>
                 </div>
                 <div className="right">

@@ -13,20 +13,22 @@ function Layout() {
   )
 }
 
+const page = [
+  {
+    path: '/',
+    element: <Dashboard/>
+  },
+  {
+    path: '/edit-profile',
+    element: <EditProfile/>
+  }
+]
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
-    children: [
-      {
-        path: '/',
-        element: <Dashboard/>
-      },
-      {
-        path: '/edit-profile',
-        element: <EditProfile/>
-      }
-    ]
+    children: page
   }
 ])
 

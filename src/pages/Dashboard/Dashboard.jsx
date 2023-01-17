@@ -3,8 +3,13 @@ import './Dashboard.scss'
 import profileStore from '../../zustand/profileStore'
 
 const Dashboard = () => {
-    const users = profileStore((state) => state.users)
-    const tesState = profileStore((state) => state.tesState)
+    const { name, age, city, tesState } = profileStore((state) => ({
+        name: state.users.name,
+        age: state.users.age,
+        city: state.users.city,
+        tesState: state.tesState
+    }))
+    const dataSecret = profileStore((state) => state.users.dataSecret)
 
     return (
         <>
@@ -14,17 +19,22 @@ const Dashboard = () => {
                         <p>{tesState}</p>
                         <p className="label-group">
                             Name : <p className="txt-group">
-                                {users && users.name}
+                                {name}
                             </p>
                         </p>
                         <p className="label-group">
                             Age : <p className="txt-group">
-                                {users && users.age}
+                                {age}
                             </p>
                         </p>
                         <p className="label-group">
                             City : <p className="txt-group">
-                                {users && users.city}
+                                {city}
+                            </p>
+                        </p>
+                        <p className="label-group">
+                            NIK : <p className="txt-group">
+                            {dataSecret.find(e=>e.berkas === 'column2')['NIK']}
                             </p>
                         </p>
                     </div>
